@@ -4,8 +4,6 @@
 	"description": "",
 	"main": "index.js",
 	"dependencies": {
-		"express": "^4.17.1",
-		"websocket": "^1.0.31",
 		"ws": "^7.2.3"
 	},
 	"devDependencies": {},
