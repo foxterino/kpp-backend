@@ -5,7 +5,7 @@ const wss = new WebSocket.Server({ port: 3030 });
 const chatEvents = {
 	join: 'join',
 	message: 'message',
-	roomsUpdated: 'roomsUpdated',
+	roomsUpdate: 'roomsUpdate',
 };
 
 wss.on('connection', (ws) => {
@@ -30,7 +30,7 @@ wss.on('connection', (ws) => {
 
 					ws.room.push(roomName);
 					ws.send(
-						JSON.stringify({ rooms: ws.room, event: chatEvents.roomsUpdated })
+						JSON.stringify({ rooms: ws.room, event: chatEvents.roomsUpdate })
 					);
 
 					if (!client.room.includes(roomName)) {
@@ -39,7 +39,7 @@ wss.on('connection', (ws) => {
 						client.send(
 							JSON.stringify({
 								rooms: client.room,
-								event: chatEvents.roomsUpdated,
+								event: chatEvents.roomsUpdate,
 							})
 						);
 					}
